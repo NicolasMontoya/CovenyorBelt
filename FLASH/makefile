@@ -2,7 +2,7 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-#Progress monitor hint: 6
+#Progress monitor hint: 8
 first : all
 -include ../makefile.init
 
@@ -91,14 +91,14 @@ endif
 # Tool invocations
 conveyor.abs: $(OBJS) $(USER_OBJS) ../Project_Settings/Linker_Files/Project.prm
 	@echo 'Building target: $@'
-	@echo 'Executing target #7 $@'
+	@echo 'Executing target #9 $@'
 	@echo 'Invoking: S08 Linker'
 	"$(HC08ToolsEnv)/linker" -ArgFile"conveyor.args" -O"conveyor.abs"
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 conveyor.abs.s19: $(BBL_SRCS) $(EXECUTABLES)
-	@echo 'Executing target #8 $@'
+	@echo 'Executing target #10 $@'
 	@echo 'Invoking: S08 Burner'
 	"$(HC08ToolsEnv)/burner" -ArgFile"conveyor.abs.args" -f="$<" -env"ABS_FILE=$(strip $(EXECUTABLES_OS_FORMAT))"
 	@echo 'Finished building: $@'
@@ -106,7 +106,7 @@ conveyor.abs.s19: $(BBL_SRCS) $(EXECUTABLES)
 
 # Other Targets
 clean:
-	-$(RM) $(S_DEPS_QUOTED) "./*/*.obj" "./*/*/*.obj"  $(CPP_DEPS_QUOTED) $(CC_DEPS_QUOTED) $(S_UPPER_DEPS_QUOTED) $(CXX_DEPS_QUOTED) $(ASM_DEPS_QUOTED) $(BURNER_OUTPUT_OUTPUTS_QUOTED) $(ASM_UPPER_DEPS_QUOTED) $(C_UPPER_DEPS_QUOTED) $(C++_DEPS_QUOTED) $(EXECUTABLES_QUOTED) "./*/*.d" "./*/*/*.d"  $(ProjDirPath)/FLASH/conveyor.abs $(ProjDirPath)/FLASH/conveyor.abs.args $(ProjDirPath)/FLASH/conveyor.abs.s19 $(ProjDirPath)/FLASH/conveyor.args $(ProjDirPath)/FLASH/conveyor.map
+	-$(RM) $(S_DEPS_QUOTED) "./*/*.obj" "./*/*/*.obj"  $(CPP_DEPS_QUOTED) $(CC_DEPS_QUOTED) $(S_UPPER_DEPS_QUOTED) $(CXX_DEPS_QUOTED) $(ASM_DEPS_QUOTED) $(BURNER_OUTPUT_OUTPUTS_QUOTED) $(ASM_UPPER_DEPS_QUOTED) $(C_UPPER_DEPS_QUOTED) $(C++_DEPS_QUOTED) $(EXECUTABLES_QUOTED) "./*/*.d" "./*/*/*.d"  $(ProjDirPath)/FLASH/conveyor.abs
 	-@echo ' '
 
 .PHONY: all clean dependents explicit-dependencies warning-messages

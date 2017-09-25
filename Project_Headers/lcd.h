@@ -9,6 +9,7 @@
 #define LCD_H_
 
 #include "derivative.h"
+#include "general.h"
 
 #define LCD_NOP() __asm NOP; __asm NOP; __asm NOP; __asm NOP; __asm NOP; __asm NOP; __asm NOP; \
                   __asm NOP; __asm NOP; __asm NOP; __asm NOP; __asm NOP; __asm NOP; __asm NOP
@@ -102,8 +103,7 @@
 #define SECOND_LCD_LINE		0x40
 
 // Extra constants
-#define MSMODTIMER	360
-#define USMODTIMER	3
+
 
 // Prototypes general functions
 
@@ -114,13 +114,12 @@ void LCD_Initialize(unsigned char);
 // Prototypes print functions
 
 void LCD_WriteMsg(byte,const byte *, word);
-void LCD_WriteMsgNow(const byte *, word);
+void LCD_WriteMsgNow(byte *, word);
 
-void msDelay(word);
-void usDelay(word);
 void LCD_Init(void);
-void FuncPrint(unsigned int);
+void PrintBottlesMSG(unsigned int, unsigned int);
 
+extern const byte MsgBottleA[];
 
 
 

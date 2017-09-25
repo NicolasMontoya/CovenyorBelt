@@ -1,0 +1,7 @@
+
+Sources/sci_c.obj: \
+	C:/Users/Nicolas/Documents/proyects/CovenyorBelt/Project_Headers/../Sources/sci.c \
+	C:/Users/Nicolas/Documents/proyects/CovenyorBelt/Project_Headers/sci.h \
+	C:/Users/Nicolas/Documents/proyects/CovenyorBelt/Project_Headers/derivative.h \
+	C:/Users/Nicolas/Documents/proyects/CovenyorBelt/Project_Headers/mc9s08jm60.h 
+

@@ -12,7 +12,7 @@
 #include "derivative.h"
 
 
-#define MODULO 30000//VALUE MODULE REGISTER
+#define MODULO 60000//VALUE MODULE REGISTER
 
 // Prototypes of functions
 void TIMER1_Init(void);

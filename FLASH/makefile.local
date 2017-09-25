@@ -6,6 +6,6 @@
 
 export HC08ToolsEnv=$(CWInstallLocationEnv)/MCU/prog
 export GNU_Make_Install_DirEnv=$(CWInstallLocationEnv)/gnu/bin
-export ProjDirPath=D:/CodeWarrior/conveyor
-export CWInstallLocationEnv=D:/Programs/CW MCU v10.7
+export ProjDirPath=C:/Users/Nicolas/Documents/proyects/CovenyorBelt
+export CWInstallLocationEnv=C:/Freescale/CW MCU v10.7
 export MCUToolsBaseDirEnv=$(CWInstallLocationEnv)/MCU

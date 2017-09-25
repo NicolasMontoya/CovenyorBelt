@@ -13,14 +13,33 @@ void LCD_Initialize(unsigned char InitValue){
 	LCD_NOP();
 	LCD_DISABLE();
 }
- byte MsgDynamic2[] = "Welcome";
+ const byte MsgBottleA[] = "Bottles A: ";
+ const byte MsgBottleB[] = "Bottles B: ";
+ const byte MsgBottleC[] = "Bottles C: ";
+ const byte MsgBottleE[] = "No bottle: ";
+ 
+ char* number;
+ 
 
-void FuncPrint(unsigned int a){
-	char n[3] = {' '};
-	n[1] = a + '0';
-	n[2] = '\0';
-	LCD_WriteMsg(SECOND_LCD_LINE,MsgDynamic2,0);
-	LCD_WriteMsgNow(n,0);
+void PrintBottlesMSG(unsigned int a, unsigned int type){
+	if(type == 0)
+	{
+		LCD_WriteMsg(SECOND_LCD_LINE,MsgBottleA,0);
+	}
+	else if(type == 1)
+	{
+		LCD_WriteMsg(SECOND_LCD_LINE,MsgBottleB,0);
+	}
+	else if(type == 2)
+	{
+		LCD_WriteMsg(SECOND_LCD_LINE,MsgBottleC,0);
+	}
+	else{
+		LCD_WriteMsg(SECOND_LCD_LINE,MsgBottleE,0);
+	}
+	
+	number = BCDConverter(a);
+	LCD_WriteMsgNow(number,0);
 	
 }
 
@@ -38,7 +57,7 @@ void LCD_WriteMsg(byte StartDir, const byte *Msg, word delay){
 			}
 		}
 }
-void LCD_WriteMsgNow( const byte *Msg, word delay){
+void LCD_WriteMsgNow( byte *Msg, word delay){
 
 	while (*Msg!='\0')
 		{
@@ -97,21 +116,4 @@ void LCD_SetDataRAM(unsigned char data){
 	LCD_DISABLE();
 }
 
-void msDelay(word ms){
-	unsigned int i;
-	unsigned int j;
-	for(j=0;j < ms;j++){
-		for(i=0;i < MSMODTIMER;i++){
-			
-		}
-	}
-}
-void usDelay(word us){
-	unsigned int i;
-	unsigned int j;
-	for(j=0;j < us;j++){
-		for(i=0;i < USMODTIMER;i++){
-			
-		}
-	}
-}
+
