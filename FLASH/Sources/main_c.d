@@ -9,5 +9,7 @@ Sources/main_c.obj: \
 	C:/Users/Nicolas/Documents/proyects/CovenyorBelt/Project_Headers/timer.h \
 	C:/Users/Nicolas/Documents/proyects/CovenyorBelt/Project_Headers/events.h \
 	C:/Users/Nicolas/Documents/proyects/CovenyorBelt/Project_Headers/lcd.h \
-	C:/Users/Nicolas/Documents/proyects/CovenyorBelt/Project_Headers/general.h 
+	C:/Users/Nicolas/Documents/proyects/CovenyorBelt/Project_Headers/general.h \
+	C:/Users/Nicolas/Documents/proyects/CovenyorBelt/Project_Headers/sci.h \
+	C:/Users/Nicolas/Documents/proyects/CovenyorBelt/Project_Headers/MCG.h 
 

@@ -23,5 +23,6 @@ extern unsigned long  time_pulse_width;//variable for indicating pulse width
 
 void processEvents(void);
 void printState(unsigned int);
+void printDefault(unsigned int, unsigned int, unsigned int, unsigned int, unsigned int);
 
 #endif /* EVENTS_H_ */

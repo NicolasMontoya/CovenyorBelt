@@ -17,11 +17,16 @@ void LCD_Initialize(unsigned char InitValue){
  const byte MsgBottleB[] = "Bottles B: ";
  const byte MsgBottleC[] = "Bottles C: ";
  const byte MsgBottleE[] = "No bottle: ";
+ const byte MsgReduceA[] = "A: ";
+ const byte MsgReduceB[] = "  B: ";
+ const byte MsgReduceC[] = "  C: ";
+ const byte MsgReduceE[] = "Error: ";
  
  char* number;
  
 
 void PrintBottlesMSG(unsigned int a, unsigned int type){
+	
 	if(type == 0)
 	{
 		LCD_WriteMsg(SECOND_LCD_LINE,MsgBottleA,0);
@@ -43,6 +48,24 @@ void PrintBottlesMSG(unsigned int a, unsigned int type){
 	
 }
 
+void printBottles(unsigned int a, unsigned int b, unsigned int c, unsigned int e)
+{
+	LCD_SetCommand(LCD_CLEAR, LCD_NOPARAMETER);
+	msDelay(2);
+	LCD_WriteMsg(FIRST_LCD_LINE,MsgReduceA,0);
+	number = BCDConverter(a);
+	LCD_WriteMsgNow(number,0);
+	LCD_WriteMsgNow(MsgReduceB,0);
+	number = BCDConverter(b);
+	LCD_WriteMsgNow(number,0);
+	LCD_WriteMsgNow(MsgReduceC,0);
+	number = BCDConverter(c);
+	LCD_WriteMsgNow(number,0);
+	LCD_WriteMsg(SECOND_LCD_LINE,MsgReduceE,0);
+	number = BCDConverter(e);
+	LCD_WriteMsgNow(number,0);
+}
+
 
 void LCD_WriteMsg(byte StartDir, const byte *Msg, word delay){
 	LCD_SetCommand(LCD_SETADDRDDRAM, StartDir);
@@ -57,7 +80,7 @@ void LCD_WriteMsg(byte StartDir, const byte *Msg, word delay){
 			}
 		}
 }
-void LCD_WriteMsgNow( byte *Msg, word delay){
+void LCD_WriteMsgNow(const byte *Msg, word delay){
 
 	while (*Msg!='\0')
 		{
@@ -68,6 +91,20 @@ void LCD_WriteMsgNow( byte *Msg, word delay){
 				usDelay(50);
 			}
 		}
+}
+void LCD_WriteMsgNowNO( byte *Msg, word delay){
+
+	LCD_SetCommand(LCD_SETADDRDDRAM, 0x00);
+		usDelay(60);
+		while (*Msg!='\0')
+			{
+				LCD_SetDataRAM(*(Msg++));
+				if (delay > 0){
+				  msDelay(delay);
+				}else{
+					usDelay(50);
+				}
+			}
 }
 
 
@@ -80,7 +117,7 @@ void LCD_Init(){
 	LCD_CMD();
 	LCD_DISABLE();
 	LCD_PIN_ADDRESS = 0;
-	
+	// Commands to initialize
 	msDelay(16);
 	LCD_Initialize(LCD_INITIALIZE);
 	msDelay(5);
@@ -89,6 +126,7 @@ void LCD_Init(){
 	LCD_Initialize(LCD_INITIALIZE);
 	usDelay(100);
 	
+	// Clear LCD
 	LCD_SetCommand(LCD_CLEAR, LCD_NOPARAMETER);
 	msDelay(2);
 	LCD_SetCommand(LCD_ENTRYMODSET,LCD_ENTRYMODSET_CURINC);

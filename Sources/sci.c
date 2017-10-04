@@ -8,6 +8,7 @@
 #include "sci.h"
 
 void SCI_Init(void){
+	
 	SCI2C1 = 0x00;
 	SCI2C2 = 0x2C;
 	SCI2C3 = 0x00;
@@ -15,6 +16,7 @@ void SCI_Init(void){
 	SCI2BDL = 52;
 
 }
+
 void SCI_PutChar(byte Data) {
   while(SCI2S1_TDRE == 0);
   SCI2D = Data;

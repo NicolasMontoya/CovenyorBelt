@@ -10,6 +10,7 @@
 
 #include "derivative.h"
 
+// Library for control the time and BCDConverter
 
 void msDelay(word);
 void usDelay(word);

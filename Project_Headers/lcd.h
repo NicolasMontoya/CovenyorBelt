@@ -114,10 +114,13 @@ void LCD_Initialize(unsigned char);
 // Prototypes print functions
 
 void LCD_WriteMsg(byte,const byte *, word);
-void LCD_WriteMsgNow(byte *, word);
+void LCD_WriteMsgNow(const byte *, word);
+void LCD_WriteMsgNowNO( byte *, word);
+
 
 void LCD_Init(void);
 void PrintBottlesMSG(unsigned int, unsigned int);
+void printBottles(unsigned int , unsigned int , unsigned int , unsigned int );
 
 extern const byte MsgBottleA[];
 

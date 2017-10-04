@@ -7,7 +7,8 @@
 #include "events.h"
 #include "lcd.h"
 #include "general.h"
-
+#include "sci.h"
+#include "MCG.h"
 #define CR   0x0D
 
 
@@ -17,6 +18,8 @@ void Port_Init(void)
 {
 	PTDDD=0xFF;//OUT FOR LEDS
 	PTDD=0x00;
+	PTADD_PTADD0 = 1;
+	PTAD_PTAD0 = 0;
 	
 }
 
@@ -33,8 +36,9 @@ void main(void)
   Port_Init();
   TIMER1_Init();
   LCD_Init();
+  MCG_Init();
   SCI_Init();
-  msDelay(4);
+  
   // ENABLE INTERRUPTS 
   EnableInterrupts;
   LCD_WriteMsg(0x00,noworking,0);
@@ -50,5 +54,6 @@ void main(void)
     
   }
 }//main
+
 
 

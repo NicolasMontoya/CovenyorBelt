@@ -4,7 +4,8 @@
 -WmsgFob"%f%e:%l:%k:%d %m\n"
 -WmsgSd1100
 -WmsgSd1912 
--Add("$(ProjDirPath)/FLASH/Sources/events_c.obj"
+-Add("$(ProjDirPath)/FLASH/Sources/MCG_c.obj"
+"$(ProjDirPath)/FLASH/Sources/events_c.obj"
 "$(ProjDirPath)/FLASH/Sources/general_c.obj"
 "$(ProjDirPath)/FLASH/Sources/lcd_c.obj"
 "$(ProjDirPath)/FLASH/Sources/main_c.obj"
